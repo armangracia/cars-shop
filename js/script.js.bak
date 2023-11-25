@@ -1,0 +1,51 @@
+document.addEventListener("DOMContentLoaded", function() {
+  // Get all car boxes
+  var carBoxes = document.querySelectorAll(".box");
+
+  // Create the modal and append it to the body
+  var modal = document.createElement("div");
+  modal.className = "modal";
+  modal.innerHTML = `
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImage" src="" alt="">
+      <p id="modalDescription"></p>
+    </div>
+  `;
+  document.body.appendChild(modal);
+
+  // Get the image and description elements in the modal
+  var modalImage = document.getElementById("modalImage");
+  var modalDescription = document.getElementById("modalDescription");
+
+  // Loop through each car box and add a click event listener
+  carBoxes.forEach(function(carBox) {
+    carBox.addEventListener("click", function() {
+      // Get the image source and description from the clicked car box
+      var imageSrc = carBox.querySelector("img").src;
+      var description = carBox.querySelector("h2").innerText;
+
+      // Set the image source and description in the modal
+      modalImage.src = imageSrc;
+      modalDescription.innerText = description;
+
+      // Display the modal
+      modal.style.display = "block";
+    });
+  });
+
+  // Get the close button in the modal
+  var closeButton = document.querySelector(".close");
+
+  // Add a click event listener to the close button to hide the modal
+  closeButton.addEventListener("click", function() {
+    modal.style.display = "none";
+  });
+
+  // Add a click event listener to close the modal if the user clicks outside of it
+  window.addEventListener("click", function(event) {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
+});

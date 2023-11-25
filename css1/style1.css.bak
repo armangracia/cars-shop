@@ -90,6 +90,7 @@ body {
 	margin-bottom: 20px;
 }
 
+
 .cars-container .box:hover {
     background: red;
 }
@@ -217,4 +218,48 @@ body {
 	main{
 		font-size: 55px;
 	}
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+}
+
+.modal-content {
+  margin: 5% auto;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  background-color: #fff;
+  position: relative;
+}
+
+.close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #ccc;
+  font-size: 30px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Additional styling for modal content */
+#modalImage {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+#modalDescription {
+  margin-top: 10px;
 }
